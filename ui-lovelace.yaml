@@ -1,0 +1,121 @@
+title: Home Assistant - Сервер
+views:
+
+  - title: Освещение
+    icon: mdi:lightbulb-group
+              
+    cards:
+    
+      - type: vertical-stack
+        cards:
+        - type: markdown
+          content: >
+             **Панель переключателей** 
+             
+        - type: entities
+          show_header_toggle: false
+          entities:
+            - entity: light.yeelink_light_strip_1
+              name: Подсветка кровати
+            - entity: light.yeelink_light_strip_2
+              name: Подсветка ТВ
+    
+      - type: vertical-stack
+        cards:
+        - type: markdown
+          content: >
+             **Светильники**
+              
+        - type: horizontal-stack
+          cards:
+            - type: light
+              entity: light.yeelink_light_strip_1
+              name: Подсветка кровати
+            - type: light
+              entity: light.yeelink_light_strip_2
+              name: Подсветка ТВ
+
+
+  - title: Железо
+    icon: mdi:desktop-classic
+    
+    cards:
+    
+      - type: vertical-stack
+        cards:
+        
+        - type: markdown
+          content: >
+             **Текущее состояние**
+    
+        - type: entities
+          show_header_toggle: false
+          entities:
+            - entity: sensor.time
+              name: Текущее время
+              icon: mdi:clock-time-four-outline
+            - entity: sensor.date
+              name: Дата
+              icon: mdi:calendar-multiselect
+            
+        - type: entities
+          show_header_toggle: false
+          entities:
+            - entity: sensor.maria_db_size
+              name: Объем БД
+              icon: mdi:database
+              
+        - type: horizontal-stack
+          cards:
+             
+            - type: gauge
+              name: Загрузка CPU
+              unit: '%'
+              entity: sensor.processor_use_percent
+              severity:
+                green: 0
+                yellow: 60
+                red: 90
+              
+            - type: sensor
+              name: Температура CPU
+              entity: sensor.processor_temperature
+              
+        - type: horizontal-stack
+          cards:
+           
+            - type: gauge
+              name: Использование ОЗУ
+              unit: '%'
+              entity: sensor.memory_use_percent
+              severity:
+                green: 0
+                yellow: 60
+                red: 90
+              
+            - type: sensor
+              name: Свободное место
+              entity:  sensor.disk_free
+            
+      - type: vertical-stack
+        cards:
+        - type: markdown
+          content: >
+             **Графики** 
+             
+        - type: history-graph
+          entities:
+          - entity: sensor.maria_db_size
+            name: Maria DB
+            
+            
+            
+  - title: Погода
+    icon: mdi:weather-partly-snowy-rainy
+    
+    cards:
+
+      - type: weather-forecast
+        entity: weather.home_assistant 
+    
+    

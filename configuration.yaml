@@ -1,5 +1,6 @@
 homeassistant:
   name: Умная квартира на Авиационной 10
+  customize: !include customize.yaml
 
 # Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
@@ -21,11 +22,3 @@ yeelight: !include includes/yeelight.yaml
 
 # Вынос во внешние папки
 sensor: !include_dir_merge_list includes/sensor
-
-xiaomi_aqara:
-  discovery_retry: 20
-  gateways:
-    - mac: 7C:49:EB:89:1A:1B
-      key: nzeq72w4z794rhpa
-      host: 192.168.0.52
-

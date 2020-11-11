@@ -1,0 +1,12 @@
+#Бинарные сенсоры
+binary_sensor.door_window_sensor_158d00042df262:
+  friendly_name: Датчик открытия двери
+  device_class: door
+  icon: mdi:door-closed
+binary_sensor.smoke_sensor_158d0004119b7b:
+  friendly_name: Датчик дыма
+  device_class: smoke
+  icon: mdi:smoke-detector
+binary_sensor.switch_158d00044b636d:
+  friendly_name: Кнопка дверного звонка
+  icon: mdi:gesture-tap-button

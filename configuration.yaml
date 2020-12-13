@@ -11,14 +11,45 @@ lovelace:
 # Text to speech
 tts:
   - platform: google_translate
+  
+mqtt:
+  broker: core-mosquitto
+  discovery: true
+  discovery_prefix: homeassistant
+  username: mqtt
+  password: mqtt
+  
+wake_on_lan:
+
+webostv:
+  host: 192.168.0.31
+  name: Телевизор
+  turn_on_action:
+    service: wake_on_lan.send_magic_packet
+    data:
+      mac: 60:AB:14:3C:70:7C
+      broadcast_address: 192.168.0.255
+  customize:
+    sources:
+      - КиноПоиск HD
+      - youtube
+      - Twitch
+
+notify:
+  platform: webostv
+  host: 192.168.0.31
+  name: lg_tv
+  filename: webostv.conf
 
 # Вынос во внешние файлы
+timer: !include includes/timer.yaml
+input_boolean: !include includes/input_boolean.yaml
 group: !include includes/groups.yaml
-automation: !include includes/automations.yaml
-script: !include includes/scripts.yaml
 scene: !include includes/scenes.yaml
 recorder: !include includes/recorder.yaml
 yeelight: !include includes/yeelight.yaml
 
 # Вынос во внешние папки
 sensor: !include_dir_merge_list includes/sensor
+automation: !include_dir_merge_list includes/automation
+script: !include_dir_merge_named includes/scripts

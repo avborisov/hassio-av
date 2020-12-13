@@ -1,6 +1,57 @@
 title: Home Assistant - Сервер
 views:
 
+  - title: Телевизор
+    icon: mdi:television
+              
+    cards:
+    
+      - type: vertical-stack
+        cards:
+        - type: markdown
+          content: >
+             **Панель переключателей**
+              
+        - type: horizontal-stack
+          cards:
+          
+            - type: button
+              name: Включить ТВ
+              show_name: false
+              icon: mdi:television-classic
+              show_state: false
+              tap_action:
+                action: call-service
+                service: script.tv_switch_on
+
+            - type: button
+              name: Выключить ТВ
+              show_name: false
+              icon: mdi:television-classic-off
+              show_state: false
+              tap_action:
+                action: call-service
+                service: script.tv_switch_off
+                
+            - type: button
+              name: Кинопоиск HD
+              show_name: false
+              icon: mdi:high-definition-box
+              show_state: false
+              tap_action:
+                action: call-service
+                service: script.tv_switch_on_kinopoisk
+                
+            - type: button
+              name: Twitch
+              show_name: false
+              icon: mdi:twitch
+              show_state: false
+              tap_action:
+                action: call-service
+                service: script.tv_switch_on_twitch
+                
+            
   - title: Освещение
     icon: mdi:lightbulb-group
               
@@ -19,6 +70,8 @@ views:
               name: Подсветка кровати
             - entity: light.yeelink_light_strip_2
               name: Подсветка ТВ
+            - entity: light.tasmota
+              name: Фитолампа
     
       - type: vertical-stack
         cards:
@@ -34,7 +87,9 @@ views:
             - type: light
               entity: light.yeelink_light_strip_2
               name: Подсветка ТВ
-
+            - type: light
+              entity: light.tasmota
+              name: Фитолампа
 
   - title: Железо
     icon: mdi:desktop-classic
@@ -135,22 +190,22 @@ views:
         - type: entities
           show_header_toggle: false
           entities:          
-            - entity: light.gateway_light_34ce0088b039
+            - entity: light.gateway_light_7c49eb891a1b
             - entity: sensor.illumination_7c49eb891a1b
 
       - type: vertical-stack
         cards:
         - type: markdown
           content: >
-             **Климат, окна двери** 
-             
+             **Добавление устройств**
+
         - type: entities
+          title: Добавление Zigbee устройств
           show_header_toggle: false
-          entities:   
-            - entity: sensor.humidity_158d00015aebb6
-            - entity: sensor.temperature_158d00015aebb6
-            - entity: binary_sensor.door_window_sensor_158d00013ed373
-            - entity: binary_sensor.door_window_sensor_158d000445206b
+          entities:
+             - entity: input_boolean.zigbee_permit_join
+             - entity: timer.zigbee_permit_join
+             - entity: sensor.bridge_state
             
             
   - title: Погода
@@ -160,5 +215,24 @@ views:
 
       - type: weather-forecast
         entity: weather.home_assistant 
+        
+      - type: vertical-stack
+        cards:
+        - type: markdown
+          content: >
+             **Климат, окна двери** 
+             
+        - type: entities
+          show_header_toggle: false
+          entities:
+            - entity: sensor.temperature_158d000303fea2
+            - entity: sensor.temperature_158d000410c77c
+            - entity: sensor.temperature_158d00044db3a0
+
+            - entity: sensor.humidity_158d000303fea2
+            - entity: sensor.humidity_158d000410c77c
+            - entity: sensor.humidity_158d00044db3a0
+
+            - entity: binary_sensor.door_window_sensor_158d00042df262
     
     

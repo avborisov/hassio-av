@@ -1,0 +1,19 @@
+- alias: turn_on_fito_light
+  trigger:
+    platform: time
+    at: "07:00:00"
+  action:
+    service: light.turn_on
+    entity_id: light.tasmota
+        
+        
+- alias: turn_off_fito_light
+  trigger:
+    platform: time
+    at: "19:00:00"
+  action:
+    service: light.turn_off
+    entity_id: light.tasmota
+        
+        
+        

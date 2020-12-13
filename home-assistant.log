@@ -1,0 +1,2 @@
+2020-12-13 17:09:05 ERROR (MainThread) [homeassistant.components.notify] Failed to initialize notification service webostv
+2020-12-13 17:09:05 WARNING (MainThread) [homeassistant.components.yeelight.light] Cannot determine device type for 192.168.0.54, yeelink-light-strip-2. Falling back to white only

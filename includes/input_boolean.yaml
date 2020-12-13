@@ -1,0 +1,4 @@
+  zigbee_permit_join:
+    name: Режим подключения устройств
+    initial: off
+    icon: mdi:cellphone-wireless

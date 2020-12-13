@@ -1,0 +1,3 @@
+  zigbee_permit_join:
+    name: Времени осталось
+    duration: 600

@@ -1,0 +1,62 @@
+tv_switch_on:
+  alias: Включение телевизора
+  sequence:
+    - service: media_player.turn_on
+      entity_id: media_player.televizor
+        
+tv_switch_off:
+  alias: Выключение телевизора
+  sequence:
+    - service: media_player.turn_off
+      entity_id: media_player.televizor
+      
+      
+tv_switch_on_kinopoisk:
+  alias: Включение Кинопоиск HD
+  sequence:
+    - service: media_player.turn_on
+      entity_id: media_player.televizor
+    - delay: 12
+    
+    - service: media_player.select_source
+      entity_id: media_player.televizor
+      data:
+        source: КиноПоиск HD
+        
+    - service: media_player.volume_set
+      data:
+        entity_id: media_player.televizor
+        volume_level: 0.13
+    - delay: 10
+    
+    - service: webostv.button
+      data:
+        entity_id: media_player.televizor
+        button: "DOWN"
+    - delay: 2
+    
+    - service: webostv.button
+      data:
+        entity_id: media_player.televizor
+        button: "DOWN"
+    - delay: 2
+    
+    - service: webostv.button
+      data:
+        entity_id: media_player.televizor
+        button: "ENTER"
+        
+tv_switch_on_twitch:
+  alias: Включение Twitch
+  sequence:
+    - service: media_player.turn_on
+      entity_id: media_player.televizor
+    - delay: 12
+    
+    - service: media_player.select_source
+      entity_id: media_player.televizor
+      data:
+        source: Twitch
+
+
+

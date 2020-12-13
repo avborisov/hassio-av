@@ -9,4 +9,50 @@ binary_sensor.smoke_sensor_158d0004119b7b:
   icon: mdi:smoke-detector
 binary_sensor.switch_158d00044b636d:
   friendly_name: Кнопка дверного звонка
-  icon: mdi:gesture-tap-button
+  icon: mdi:doorbell
+  
+#Шлюз
+light.gateway_light_7c49eb891a1b:
+  friendly_name: Шлюз ночник
+  icon: mdi:star-circle-outline
+sensor.illumination_7c49eb891a1b:
+  friendly_name: Шлюз яркость
+  
+#Реле
+light.tasmota:
+  friendly_name: Биосветильник
+  icon: mdi:sprout
+  
+#Батарейки
+sensor.battery_158d00044b636d:
+  friendly_name: Кнопка звонка - уровень заряда
+  device_class: battery
+  icon: mdi:battery-high
+sensor.battery_158d0004119b7b:
+  friendly_name: Датчик дыма - уровень заряда
+  device_class: battery
+  icon: mdi:battery-high
+sensor.battery_158d00042df262:
+  friendly_name: Датчик открытия двери - уровень заряда
+  device_class: battery
+  icon: mdi:battery-high
+  
+#Климат
+sensor.humidity_158d000303fea2:
+  friendly_name: Гостинная - влажность
+  device_class: humidity
+sensor.humidity_158d000410c77c:
+  friendly_name: Детская - влажность
+  device_class: humidity
+sensor.humidity_158d00044db3a0:
+  friendly_name: Кухня - влажность
+  device_class: humidity
+sensor.temperature_158d000303fea2:
+  friendly_name: Гостинная - температура
+  device_class: temperature
+sensor.temperature_158d000410c77c:
+  friendly_name: Детская - температура
+  device_class: temperature
+sensor.temperature_158d00044db3a0:
+  friendly_name: Кухня - температура
+  device_class: temperature
